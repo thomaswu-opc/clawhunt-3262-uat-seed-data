@@ -1,0 +1,13 @@
+role,account,name,site,phone
+admin,admin01@example.test,朱工01,S1,138-0000-1000
+content,content08@example.test,张工08,S2,138-0000-1007
+crm,crm06@example.test,孔工06,S2,138-0000-1005
+finance,finance07@example.test,赵工07,S1,138-0000-1006
+it,it11@example.test,孔工11,S1,138-0000-1010
+knowledge,knowledge02@example.test,吕工02,S2,138-0000-1001
+manager,manager12@example.test,蒋工12,S2,138-0000-1011
+marketing,marketing10@example.test,魏工10,S2,138-0000-1009
+member_success,member_success09@example.test,曹工09,S1,138-0000-1008
+reception,reception03@example.test,孔工03,S1,138-0000-1002
+sales,sales04@example.test,吕工04,S2,138-0000-1003
+space_ops,space_ops05@example.test,陈工05,S1,138-0000-1004

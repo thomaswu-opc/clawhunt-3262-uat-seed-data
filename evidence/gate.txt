@@ -1,0 +1,30 @@
+$ E:/ClawHunt/acceptance/2824/work/.venv/Scripts/python.exe -m pytest -v
+# 2026-11-26T11:32:21  exit=0
+
+============================= test session starts =============================
+platform win32 -- Python 3.13.14, pytest-9.2.0, pluggy-1.7.0 -- E:\ClawHunt\acceptance\2824\work\.venv\Scripts\python.exe
+rootdir: E:\ClawHunt\acceptance\3262\work
+plugins: anyio-4.16.0
+collecting ... collected 11 items
+
+tests/test_acceptance.py::AC1CountsMatchRequirement::test_ac1_companies_cover_every_lifecycle PASSED [  9%]
+tests/test_acceptance.py::AC1CountsMatchRequirement::test_ac1_counts_equal_ticket_requirement PASSED [ 18%]
+tests/test_acceptance.py::AC1CountsMatchRequirement::test_ac1_leases_are_date_consistent PASSED [ 27%]
+tests/test_acceptance.py::AC1CountsMatchRequirement::test_ac1_roster_covers_every_role PASSED [ 36%]
+tests/test_acceptance.py::AC2SeedDeterminism::test_ac2_different_seed_differs PASSED [ 45%]
+tests/test_acceptance.py::AC2SeedDeterminism::test_ac2_row_level_identity_not_just_hash PASSED [ 54%]
+tests/test_acceptance.py::AC2SeedDeterminism::test_ac2_same_seed_same_digest PASSED [ 63%]
+tests/test_acceptance.py::AC3NoRealPII::test_ac3_generated_data_has_no_pii PASSED [ 72%]
+tests/test_acceptance.py::AC3NoRealPII::test_ac3_scanner_catches_real_looking_email PASSED [ 81%]
+tests/test_acceptance.py::AC3NoRealPII::test_ac3_scanner_catches_real_looking_phone PASSED [ 90%]
+tests/test_acceptance.py::AC3NoRealPII::test_ac3_scanner_rejects_id_card_field PASSED [100%]
+
+============================= 11 passed in 0.12s ==============================
+
+
+## AC coverage
+AC-1   simulatable    PASS  test_ac1_* matched
+AC-2   simulatable    PASS  test_ac2_* matched
+AC-3   unclear        PASS  doc/manual
+
+GATE: PASS

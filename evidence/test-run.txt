@@ -1,0 +1,44 @@
+$ python -m unittest discover -s tests -t . -v
+# 2026-11-26T11:32:29+08:00
+test_ac1_companies_cover_every_lifecycle (tests.test_acceptance.AC1CountsMatchRequirement.test_ac1_companies_cover_every_lifecycle) ... ok
+test_ac1_counts_equal_ticket_requirement (tests.test_acceptance.AC1CountsMatchRequirement.test_ac1_counts_equal_ticket_requirement) ... ok
+test_ac1_leases_are_date_consistent (tests.test_acceptance.AC1CountsMatchRequirement.test_ac1_leases_are_date_consistent) ... ok
+test_ac1_roster_covers_every_role (tests.test_acceptance.AC1CountsMatchRequirement.test_ac1_roster_covers_every_role) ... ok
+test_ac2_different_seed_differs (tests.test_acceptance.AC2SeedDeterminism.test_ac2_different_seed_differs) ... ok
+test_ac2_row_level_identity_not_just_hash (tests.test_acceptance.AC2SeedDeterminism.test_ac2_row_level_identity_not_just_hash)
+哈希相同还不够，逐行比对，避免"整体一致但个别字段漂移"。 ... ok
+test_ac2_same_seed_same_digest (tests.test_acceptance.AC2SeedDeterminism.test_ac2_same_seed_same_digest) ... ok
+test_ac3_generated_data_has_no_pii (tests.test_acceptance.AC3NoRealPII.test_ac3_generated_data_has_no_pii) ... ok
+test_ac3_scanner_catches_real_looking_email (tests.test_acceptance.AC3NoRealPII.test_ac3_scanner_catches_real_looking_email)
+反向验证判据本身有效 —— 否则"通过"没有意义。 ... ok
+test_ac3_scanner_catches_real_looking_phone (tests.test_acceptance.AC3NoRealPII.test_ac3_scanner_catches_real_looking_phone) ... ok
+test_ac3_scanner_rejects_id_card_field (tests.test_acceptance.AC3NoRealPII.test_ac3_scanner_rejects_id_card_field) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.027s
+
+OK
+
+$ python run_seed.py
+seed=20261126  实体=9  记录=484
+  sites                2 /   2 OK
+  employees           12 /  12 OK
+  member_companies    80 /  80 OK
+  contacts           200 / 200 OK
+  leads               60 /  60 OK
+  opportunities       30 /  30 OK
+  events              10 /  10 OK
+  supply_demands      50 /  50 OK
+  leases              40 /  40 OK
+
+输出目录：E:\ClawHunt\acceptance\3262\work\out
+  uat_dataset.json / account_roster.csv / digest.txt
+digest = 4ff94ab31ee1848ddf08fbef02e905bbe72eb685d4a3ced0785155d31b8a7150
+同种子再跑一次应得到同一 digest（AC-2）
+PII 检查：通过（0 条违规）
+
+$ python run_seed.py --out out2   # 第二次运行，验证 digest 一致
+  uat_dataset.json / account_roster.csv / digest.txt
+digest = 4ff94ab31ee1848ddf08fbef02e905bbe72eb685d4a3ced0785155d31b8a7150
+同种子再跑一次应得到同一 digest（AC-2）
+PII 检查：通过（0 条违规）
